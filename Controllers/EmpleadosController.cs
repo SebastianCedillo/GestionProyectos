@@ -61,6 +61,47 @@ namespace GestionProyectos.Controllers
 
 
 
+        public List<EmpleadosModelos> ObtenerEmpleadoPorId(int id)
+        {
+            List<EmpleadosModelos> empleados = new List<EmpleadosModelos>();
+
+            try
+            {
+                string consulta = "SELECT * FROM Empleados WHERE empleado_id = @Id";
+                SqlCommand cmd = new SqlCommand(consulta, conexion.AbrirConexion());
+
+                cmd.Parameters.AddWithValue("@Id", id);
+
+                SqlDataReader lector = cmd.ExecuteReader();
+
+                if (lector.Read())
+                {
+                   EmpleadosModelos empleado = new EmpleadosModelos
+                    {
+                        EmpleadoId = Convert.ToInt32(lector["empleado_id"]),
+                        Nombre = lector["nombre"].ToString(),
+                        Apellido = lector["apellido"].ToString(),
+                        Email = lector["email"].ToString(),
+                        Posicion = lector["posicion"].ToString()
+                    };
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error al obtener el empleado: " + ex.Message);
+
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+            return empleados;
+        }
+
+
+
         public void ModificarEmpleado(EmpleadosModelos empleado)
         {
 
@@ -103,6 +144,52 @@ namespace GestionProyectos.Controllers
 
 
         }
+
+
+
+        public void GuardarEmpleado(EmpleadosModelos empleado)
+        {
+
+            try
+            {
+                string consulta = "INSERT INTO Empleados (nombre, apellido, email, posicion) VALUES (@Nombre, @Apellido, @Email, @Posicion)";
+                SqlCommand cmd = new SqlCommand(consulta, conexion.AbrirConexion());
+
+                cmd.Parameters.AddWithValue("@Nombre", empleado.Nombre);
+                cmd.Parameters.AddWithValue("@Apellido", empleado.Apellido);
+
+                cmd.Parameters.AddWithValue("@Email", empleado.Email);
+                cmd.Parameters.AddWithValue("@Posicion", empleado.Posicion);
+                cmd.Parameters.AddWithValue("@EmpleadoId", empleado.EmpleadoId);
+
+                int a = cmd.ExecuteNonQuery();
+
+                if (a > 0)
+                {
+                    MessageBox.Show("Empleado guardado correctamente ");
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo guardar el empleado ");
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+
+        }
+
 
 
     }

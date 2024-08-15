@@ -104,5 +104,40 @@ namespace GestionProyectos.Views
 
 
         }
+
+        private void btnGuardar_Click(object sender, EventArgs e)
+        {
+
+            int empleadoId = 0;
+            if (!string.IsNullOrEmpty(txtid.Text))
+            {
+                empleadoId = Convert.ToInt32(txtid.Text);
+            }
+
+            string nombre = txtnombre.Text;
+            string apellido = txtapellido.Text;
+            string email = textemail.Text;
+            string posicion = this.posicion.Text;
+
+            
+            EmpleadosModelos empleado = new EmpleadosModelos
+            {
+                EmpleadoId = empleadoId,
+                Nombre = nombre,
+                Apellido = apellido,
+                Email = email,
+                Posicion = posicion
+            };
+
+           controller.GuardarEmpleado(empleado);
+
+            
+            Actualizar();
+
+            limpiarCajas();
+        }
+
+
     }
-}
+    }
+
