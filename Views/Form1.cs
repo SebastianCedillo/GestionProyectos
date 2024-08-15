@@ -10,6 +10,7 @@ using System.Windows.Forms;
 using GestionProyectos.config;
 using System.Data.SqlClient;
 using System.Data;
+using GestionProyectos.Views;
 
 
 namespace GestionProyectos
@@ -24,10 +25,23 @@ namespace GestionProyectos
         private void button1_Click(object sender, EventArgs e)
         {
 
-            ConexionBDD conex = new ConexionBDD();
-            conex.AbrirConexion();
             
-           
+
+        }
+
+        private void Form1_Load(object sender, EventArgs e)
+        {
+
+
+
+
+
+        }
+
+        private void empleadosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmEmpleados frmEmpleados = new frmEmpleados();
+            frmEmpleados.ShowDialog();
 
 
 

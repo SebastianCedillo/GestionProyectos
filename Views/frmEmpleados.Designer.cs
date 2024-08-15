@@ -33,6 +33,8 @@
             this.btnGuardar = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.posicion = new System.Windows.Forms.TextBox();
+            this.textemail = new System.Windows.Forms.TextBox();
             this.txtapellido = new System.Windows.Forms.TextBox();
             this.txtnombre = new System.Windows.Forms.TextBox();
             this.txtid = new System.Windows.Forms.TextBox();
@@ -43,8 +45,6 @@
             this.label2 = new System.Windows.Forms.Label();
             this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
-            this.textemail = new System.Windows.Forms.TextBox();
-            this.posicion = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
@@ -67,6 +67,7 @@
             this.btnModificar.TabIndex = 12;
             this.btnModificar.Text = "Modificar";
             this.btnModificar.UseVisualStyleBackColor = true;
+            this.btnModificar.Click += new System.EventHandler(this.btnModificar_Click);
             // 
             // btnGuardar
             // 
@@ -104,6 +105,20 @@
             this.groupBox1.TabIndex = 9;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Detalles del empleado";
+            // 
+            // posicion
+            // 
+            this.posicion.Location = new System.Drawing.Point(118, 229);
+            this.posicion.Name = "posicion";
+            this.posicion.Size = new System.Drawing.Size(172, 20);
+            this.posicion.TabIndex = 15;
+            // 
+            // textemail
+            // 
+            this.textemail.Location = new System.Drawing.Point(115, 177);
+            this.textemail.Name = "textemail";
+            this.textemail.Size = new System.Drawing.Size(172, 20);
+            this.textemail.TabIndex = 14;
             // 
             // txtapellido
             // 
@@ -186,20 +201,8 @@
             this.dgvEmpleados.Name = "dgvEmpleados";
             this.dgvEmpleados.Size = new System.Drawing.Size(445, 306);
             this.dgvEmpleados.TabIndex = 7;
-            // 
-            // textemail
-            // 
-            this.textemail.Location = new System.Drawing.Point(115, 177);
-            this.textemail.Name = "textemail";
-            this.textemail.Size = new System.Drawing.Size(172, 20);
-            this.textemail.TabIndex = 14;
-            // 
-            // posicion
-            // 
-            this.posicion.Location = new System.Drawing.Point(118, 229);
-            this.posicion.Name = "posicion";
-            this.posicion.Size = new System.Drawing.Size(172, 20);
-            this.posicion.TabIndex = 15;
+            this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
+            this.dgvEmpleados.SelectionChanged += new System.EventHandler(this.dgvEmpleados_SelectionChanged);
             // 
             // frmEmpleados
             // 
