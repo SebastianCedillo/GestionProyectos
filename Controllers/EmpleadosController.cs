@@ -191,6 +191,48 @@ namespace GestionProyectos.Controllers
         }
 
 
+        public void EliminarEmpleado(int id)
+        {
+
+            try
+            {
+                string consulta = "DELETE FROM Empleados WHERE empleado_id = @Id";
+                SqlCommand cmd = new SqlCommand(consulta, conexion.AbrirConexion());
+
+                cmd.Parameters.AddWithValue("@Id", id);
+                
+
+                int a = cmd.ExecuteNonQuery();
+
+                if (a > 0)
+                {
+                    MessageBox.Show("Empleado eliminado correctamente ");
+
+                }
+                else
+                {
+                    MessageBox.Show("No se pudo eliminar el empleado ");
+
+                }
+
+
+            }
+            catch (Exception ex)
+            {
+                MessageBox.Show("Error: " + ex.Message);
+
+            }
+            finally
+            {
+                conexion.CerrarConexion();
+            }
+
+
+        }
+
+
+
+
 
     }
 }

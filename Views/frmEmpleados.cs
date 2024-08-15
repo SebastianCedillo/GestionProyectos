@@ -137,7 +137,27 @@ namespace GestionProyectos.Views
             limpiarCajas();
         }
 
+        private void btnEliminar_Click(object sender, EventArgs e)
+        {
+            if (dgvEmpleados.SelectedRows.Count > 0)
+            {
+                int empleadoId = Convert.ToInt32(dgvEmpleados.SelectedRows[0].Cells[0].Value);
 
+                
+                DialogResult resultado = MessageBox.Show("¿Estás seguro de que deseas eliminar este empleado?", "Confirmación", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                if (resultado == DialogResult.Yes)
+                {
+                    controller.EliminarEmpleado(empleadoId);
+                    Actualizar(); // Actualizar el DataGridView después de eliminar
+                }
+            }
+            else
+            {
+                MessageBox.Show("Selecciona un empleado para eliminar.");
+            }
+
+
+        }
     }
     }
 
