@@ -93,7 +93,12 @@ namespace GestionProyectos.Views
                 textemail.Text = empleadoSeleccionado.Email;
                 posicion.Text = empleadoSeleccionado.Posicion;
 
-                Actualizar();
+
+                txtid.Enabled = false;
+                txtnombre.ReadOnly = false;
+                txtapellido.ReadOnly = false;
+                textemail.ReadOnly = false;
+                posicion.ReadOnly = false;
 
                 
             }
@@ -155,6 +160,30 @@ namespace GestionProyectos.Views
             {
                 MessageBox.Show("Selecciona un empleado para eliminar.");
             }
+
+
+        }
+
+        private void btnCancelar_Click(object sender, EventArgs e)
+        {
+            limpiarCajas();
+            txtid.Enabled = true;
+            txtnombre.ReadOnly = true;
+            txtapellido.ReadOnly = true;
+            textemail.ReadOnly = true;
+            posicion.ReadOnly = true;
+
+
+        }
+
+        private void btnAgregar_Click(object sender, EventArgs e)
+        {
+            limpiarCajas();
+            txtid.Enabled = true;
+            txtnombre.ReadOnly = false;
+            txtapellido.ReadOnly = false;
+            textemail.ReadOnly = false;
+            posicion.ReadOnly = false;
 
 
         }

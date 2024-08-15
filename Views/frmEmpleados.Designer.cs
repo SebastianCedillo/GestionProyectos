@@ -43,10 +43,10 @@
             this.label4 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
-            this.dataGridView2 = new System.Windows.Forms.DataGridView();
             this.dgvEmpleados = new System.Windows.Forms.DataGridView();
+            this.btnCancelar = new System.Windows.Forms.Button();
+            this.btnAgregar = new System.Windows.Forms.Button();
             this.groupBox1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).BeginInit();
             this.SuspendLayout();
             // 
@@ -91,6 +91,7 @@
             // 
             // groupBox1
             // 
+            this.groupBox1.Controls.Add(this.btnAgregar);
             this.groupBox1.Controls.Add(this.posicion);
             this.groupBox1.Controls.Add(this.textemail);
             this.groupBox1.Controls.Add(this.txtapellido);
@@ -112,6 +113,7 @@
             // 
             this.posicion.Location = new System.Drawing.Point(118, 229);
             this.posicion.Name = "posicion";
+            this.posicion.ReadOnly = true;
             this.posicion.Size = new System.Drawing.Size(172, 20);
             this.posicion.TabIndex = 15;
             // 
@@ -119,6 +121,7 @@
             // 
             this.textemail.Location = new System.Drawing.Point(115, 177);
             this.textemail.Name = "textemail";
+            this.textemail.ReadOnly = true;
             this.textemail.Size = new System.Drawing.Size(172, 20);
             this.textemail.TabIndex = 14;
             // 
@@ -126,6 +129,7 @@
             // 
             this.txtapellido.Location = new System.Drawing.Point(118, 130);
             this.txtapellido.Name = "txtapellido";
+            this.txtapellido.ReadOnly = true;
             this.txtapellido.Size = new System.Drawing.Size(172, 20);
             this.txtapellido.TabIndex = 13;
             // 
@@ -133,6 +137,7 @@
             // 
             this.txtnombre.Location = new System.Drawing.Point(118, 77);
             this.txtnombre.Name = "txtnombre";
+            this.txtnombre.ReadOnly = true;
             this.txtnombre.Size = new System.Drawing.Size(172, 20);
             this.txtnombre.TabIndex = 12;
             // 
@@ -140,6 +145,7 @@
             // 
             this.txtid.Location = new System.Drawing.Point(115, 34);
             this.txtid.Name = "txtid";
+            this.txtid.ReadOnly = true;
             this.txtid.Size = new System.Drawing.Size(172, 20);
             this.txtid.TabIndex = 11;
             // 
@@ -188,14 +194,6 @@
             this.label2.TabIndex = 4;
             this.label2.Text = "ID del empleado";
             // 
-            // dataGridView2
-            // 
-            this.dataGridView2.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView2.Location = new System.Drawing.Point(191, 214);
-            this.dataGridView2.Name = "dataGridView2";
-            this.dataGridView2.Size = new System.Drawing.Size(127, 11);
-            this.dataGridView2.TabIndex = 8;
-            // 
             // dgvEmpleados
             // 
             this.dgvEmpleados.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
@@ -206,24 +204,43 @@
             this.dgvEmpleados.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvEmpleados_CellContentClick);
             this.dgvEmpleados.SelectionChanged += new System.EventHandler(this.dgvEmpleados_SelectionChanged);
             // 
+            // btnCancelar
+            // 
+            this.btnCancelar.Location = new System.Drawing.Point(542, 389);
+            this.btnCancelar.Name = "btnCancelar";
+            this.btnCancelar.Size = new System.Drawing.Size(125, 42);
+            this.btnCancelar.TabIndex = 14;
+            this.btnCancelar.Text = "Cancelar";
+            this.btnCancelar.UseVisualStyleBackColor = true;
+            this.btnCancelar.Click += new System.EventHandler(this.btnCancelar_Click);
+            // 
+            // btnAgregar
+            // 
+            this.btnAgregar.Location = new System.Drawing.Point(94, 270);
+            this.btnAgregar.Name = "btnAgregar";
+            this.btnAgregar.Size = new System.Drawing.Size(158, 34);
+            this.btnAgregar.TabIndex = 16;
+            this.btnAgregar.Text = "Agregar nuevo";
+            this.btnAgregar.UseVisualStyleBackColor = true;
+            this.btnAgregar.Click += new System.EventHandler(this.btnAgregar_Click);
+            // 
             // frmEmpleados
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.btnEliminar);
             this.Controls.Add(this.btnModificar);
             this.Controls.Add(this.btnGuardar);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.groupBox1);
-            this.Controls.Add(this.dataGridView2);
             this.Controls.Add(this.dgvEmpleados);
             this.Name = "frmEmpleados";
             this.Text = "frmEmpleados";
             this.Load += new System.EventHandler(this.frmEmpleados_Load);
             this.groupBox1.ResumeLayout(false);
             this.groupBox1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.dgvEmpleados)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -247,7 +264,8 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private System.Windows.Forms.DataGridView dataGridView2;
         private System.Windows.Forms.DataGridView dgvEmpleados;
+        private System.Windows.Forms.Button btnCancelar;
+        private System.Windows.Forms.Button btnAgregar;
     }
 }
