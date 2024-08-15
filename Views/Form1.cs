@@ -46,5 +46,13 @@ namespace GestionProyectos
 
 
         }
+
+        private void proyectosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            frmProyectos frmProyectos = new frmProyectos();
+            frmProyectos .ShowDialog(); 
+
+
+        }
     }
 }
